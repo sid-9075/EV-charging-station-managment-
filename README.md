@@ -101,7 +101,7 @@ App runs at: `http://localhost:5173`
 | `search` | string | Search by name or address | — |
 | `status` | int | Filter: 0=Operational, 1=Maintenance, 2=Inactive | — |
 
-## 🗂️ Enums Reference
+##  Enums Reference
 
 ### ConnectorType
 | Value | Int |
@@ -120,7 +120,7 @@ App runs at: `http://localhost:5173`
 
 ---
 
-## 🧪 Validation Rules
+##  Validation Rules
 
 | Field | Rule |
 |-------|------|
@@ -136,7 +136,7 @@ Validation is enforced on **both** frontend (react-hook-form) and backend (Data 
 
 ---
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -170,7 +170,7 @@ Validation is enforced on **both** frontend (react-hook-form) and backend (Data 
 
 ---
 
-## 📦 Tech Stack
+##  Tech Stack
 
 ### Backend
 | Package | Purpose |
