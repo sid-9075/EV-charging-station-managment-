@@ -8,16 +8,14 @@ A full-stack EV Charging Station Management System built with **ASP.NET Core 8**
 
 ```
 ChargingStationApp/
-├── backend/
-│   └── ChargingStation.API/          # ASP.NET Core Web API
+│   └── ChargingStation.API/          ASP.NET Core Web API
 │       ├── Controllers/
-│       ├── Domain/                   # Entities + Enums
-│       ├── Application/              # DTOs + Interfaces + Services
-│       ├── Infrastructure/           # EF Core + Repository + Migrations
-│       ├── Common/                   # Middleware + Models + Exceptions
+│       ├── Domain/                   Entities + Enums
+│       ├── Application/              DTOs + Interfaces + Services
+│       ├── Infrastructure/           EF Core + Repository + Migrations
+│       ├── Common/                   Middleware + Models + Exceptions
 │       └── Program.cs
 │
-└── frontend/
     └── charging-station-ui/          # React + Vite + TypeScript
         └── src/
             ├── api/                  # Axios API layer
@@ -43,21 +41,13 @@ ChargingStationApp/
 
 ---
 
-### ⚙️ Backend Setup
+###  Backend Setup
 
 #### 1. Configure the connection string
 
-> `Server=localhost\\SQLEXPRESS;Database=ChargingStationDb;Trusted_Connection=True;TrustServerCertificate=True;`
+> `Server=LAPTOP-AVNU6GET\\SQLEXPRESS;Database=ChargingStationDb;Trusted_Connection=True;TrustServerCertificate=True;`
 
-#### 2. Apply migrations & seed data
-
-```bash
-cd ChargingStation.API
-```
-
-This creates the database and seeds 3 sample stations automatically.
-
-#### 3. Run the API
+#### 2. Run the API
 
 ```bash
 dotnet run
@@ -68,7 +58,7 @@ Swagger UI: `http://localhost:5188/swagger`
 
 ---
 
-### 🖥️ Frontend Setup
+###  Frontend Setup
 
 #### 1. change directory to frontend
 
@@ -111,45 +101,6 @@ App runs at: `http://localhost:5173`
 | `search` | string | Search by name or address | — |
 | `status` | int | Filter: 0=Operational, 1=Maintenance, 2=Inactive | — |
 
-### Sample Request — Create Station
-
-```json
-POST /api/stations
-{
-  "name": "Koregaon Park EV Hub",
-  "locationAddress": "Koregaon Park, Pune",
-  "pinCode": "411001",
-  "connectorType": 0,
-  "status": 0,
-  "imageUrl": "https://example.com/image.jpg",
-  "locationLink": "https://maps.google.com/?q=Koregaon+Park+Pune"
-}
-```
-
-### Sample Response — Unified Wrapper
-
-```json
-{
-  "success": true,
-  "message": "Station created successfully.",
-  "data": {
-    "id": 4,
-    "name": "Koregaon Park EV Hub",
-    "locationAddress": "Koregaon Park, Pune",
-    "pinCode": "411001",
-    "connectorType": "CCS",
-    "status": "Operational",
-    "imageUrl": "https://example.com/image.jpg",
-    "locationLink": "https://maps.google.com/?q=Koregaon+Park+Pune",
-    "createdAt": "2025-01-15T10:30:00Z",
-    "updatedAt": null
-  },
-  "errors": null
-}
-```
-
----
-
 ## 🗂️ Enums Reference
 
 ### ConnectorType
@@ -182,16 +133,6 @@ POST /api/stations
 | Location Link | Optional, valid URL format |
 
 Validation is enforced on **both** frontend (react-hook-form) and backend (Data Annotations + ModelState).
-
----
-
-## 🎨 Status Color Scheme
-
-| Status | Color | Tailwind |
-|--------|-------|---------|
-| Operational | Green | `emerald-400` |
-| Maintenance | Red | `red-400` |
-| Inactive | Gray | `gray-400` |
 
 ---
 
